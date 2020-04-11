@@ -77,10 +77,11 @@
     margin: 0 auto;
     padding-bottom: 40pt;
 }
-.project__filters{
-    padding-bottom: 50pt;
+/* настройка работы кнопок фильтра */
+input[type="radio"] {
+    display:none;
 }
-.project__filters a{
+label {  
     text-decoration: none;
     font-size: 14pt;
     color: rgba(140, 140, 140, 255);
@@ -88,21 +89,79 @@
     border: 1px solid #ebebeb;
     font-family: 'Montserrat', sans-serif;
     padding: 10pt 23pt 10pt 23pt;
+    cursor:pointer;
+    border-radius: 7%;
 }
-.project__filters a:not(:last-child){
+label:not(:last-child){
     margin-right: 10pt;
 }
+input[type="radio"][id="itemall"]:checked + label {
+    background:#998675;
+    color: white;
+}
+input[type="radio"][id="itemall"]:checked ~ .project__row .web, 
+input[type="radio"][id="itemall"]:checked ~ .project__row .app, 
+input[type="radio"][id="itemall"]:checked ~ .project__row .ill, 
+input[type="radio"][id="itemall"]:checked ~ .project__row .photo {
+    display: block;
+}
+input[type="radio"][id="web"]:checked + label {
+    background:#998675;
+    color: white;
+}
+input[type="radio"][id="web"]:checked ~ .project__row .app,
+input[type="radio"][id="web"]:checked ~ .project__row .ill,
+input[type="radio"][id="web"]:checked ~ .project__row .photo {
+    display: none;
+}
+input[type="radio"][id="app"]:checked + label {
+    background:#998675;
+    color: white;
+}
+input[type="radio"][id="app"]:checked ~ .project__row .ill, 
+input[type="radio"][id="app"]:checked ~ .project__row .web,
+input[type="radio"][id="app"]:checked ~ .project__row .photo {
+    display: none;
+}
+input[type="radio"][id="ill"]:checked + label {
+    background:#998675;
+    color: white;
+}
+input[type="radio"][id="ill"]:checked ~ .project__row .app, 
+input[type="radio"][id="ill"]:checked ~ .project__row .web,
+input[type="radio"][id="ill"]:checked ~ .project__row .photo {
+    display: none;
+}
+input[type="radio"][id="photo"]:checked + label {
+    background:#998675;
+    color: white;
+}
+input[type="radio"][id="photo"]:checked ~ .project__row .app, 
+input[type="radio"][id="photo"]:checked ~ .project__row .web,
+input[type="radio"][id="photo"]:checked ~ .project__row .ill {
+    display: none;
+}
+
+
+/* Оформление карточек */
+  
 .project__items{
     margin-bottom: 30pt;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center; */
 }
 .project__row{
     display: inline-flex;
     flex-direction: row;
     margin-bottom: 30pt;
+    margin-top: 38pt;
+    
 }
 .project__item{ 
     width: 370pt;
     background-color: #fbfaf8;
+    display: block;
     
 }
 .project__item:not(:last-child){
@@ -117,7 +176,6 @@
 .project__img{
     position: relative;
 }
-
 .project__bg-img{
     top: 0;
     position: absolute;
@@ -159,7 +217,6 @@
     display: block;
 }
 .btn__more{
-    
     text-decoration: none;
     font-size: 14pt;
     color: rgba(255, 255, 255, 255);
@@ -174,3 +231,4 @@
 
 /* font-family: 'Raleway', sans-serif;
 font-family: 'Montserrat', sans-serif; */
+
